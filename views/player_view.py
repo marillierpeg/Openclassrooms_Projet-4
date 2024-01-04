@@ -1,24 +1,44 @@
+import datetime
+import re
+
+
 class ViewPlayer:
-    """récupération des informations du joueur"""
-    def __init__(self):
-        pass
-
-    def first_name(self):
-        self.first_name = input("Prénom du joueur?")
-        return self.first_name
-
-    def last_name(self):
-        self.last_name = input("Nom de famille du joueur?")
-        return self.last_name
-
-    def date_of_birth(self):
-        self.date_of_birth = input(
-            "Date de naissance du joueur? (format attendu : jj/mm/aaaa)"
+    """affiche le menu joueurs"""
+    def display_players_menu():
+        print("Menu Joueurs :")
+        print("1 : Inscrire un joueur")
+        print("2 : afficher la liste de tous les joueurs")
+        print("3 : retour au menu principal")
+        player_choice = input(
+            "Saisir le numéro du menu auquel vous souhaiter accéder :"
             )
-        # verifier le format
-        return self.date_of_birth
+        return player_choice
 
-    def ID(self):
-        self.ID = input("Identifiant du joueur? (format attendu : AB12345)")
-        # verifier le format
-        return self.ID
+    """récupération des informations du joueur"""
+    def first_name():
+        first_name = input("Prénom du joueur?")
+        return first_name
+    
+    def last_name():
+        last_name = input("Nom de famille du joueur?")
+        return last_name
+
+    def date_of_birth():
+        while True:
+            format_date = "%d-%m-%Y"
+            date_of_birth = input(
+                "Date de naissance du joueur? (format attendu : jj-mm-aaaa)"
+                )
+            try:
+                datetime.datetime.strptime(date_of_birth, format_date)
+                return date_of_birth
+            except ValueError:
+                print("merci d'entrer une date valide")
+
+    def ID():
+        while True:
+            ID = input("Identifiant du joueur? (format attendu : AB12345)")
+            if re.match(r'[a-zA-Z]{2}[0-9]{5}$', ID):
+                return ID
+            else:
+                print("ID non valide")
