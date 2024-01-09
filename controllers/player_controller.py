@@ -5,7 +5,7 @@ import pprint
 import time
 
 
-class ControllerPlayer:
+class PlayerController:
     def create_player():
         """création d'un joueur"""
         first_name = ViewPlayer.first_name()
@@ -14,26 +14,27 @@ class ControllerPlayer:
         ID_joueur = ViewPlayer.ID()
         score = 0
         players_info = [{
-            "Nom :": last_name,
-            "Prénom :": first_name,
-            "Date de naissance :": date_of_birth,
-            "ID :": ID_joueur,
-            "Score :": score
+            "last_name": last_name,
+            "first_name": first_name,
+            "date_of_birth": date_of_birth,
+            "ID": ID_joueur,
+            "score": score
             }]
         try:
             with open(
-                "json_files/Joueurs.json", "r", encoding="utf-8"
+                "json_files/players.json", "r", encoding="utf-8"
             ) as file:
                 data = json.load(file)
         except FileNotFoundError:
             data = []
         data.extend(players_info)
-        with open("json_files/Joueurs.json", "w", encoding="utf-8") as file:
+        with open("json_files/players.json", "w", encoding="utf-8") as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
         MainView.display_menu()
 
     def display_players():
-        with open("json_files/Joueurs.json", "r", encoding="utf-8") as file:
+        """affichage de la liste des joueurs par ordre alphabétique"""
+        with open("json_files/players.json", "r", encoding="utf-8") as file:
             data = json.load(file)
         players = []
         for i in range(len(data)):
@@ -41,18 +42,20 @@ class ControllerPlayer:
             item_list = list(dict_player.items())
             players.append(item_list)
         for i in range(len(players)):
+            """Tri la liste d'abord par nom de famille puis par prénom"""
             sorted_name = sorted(players, key=lambda x: (x[0], x[1]))
         pprint.pprint(sorted_name)
 
     def player_menu_choice():
+        """affichage du menu joueurs"""
         while True:
             player_choice = ViewPlayer.display_players_menu()
             if player_choice == "1":
-                ControllerPlayer.create_player()
+                PlayerController.create_player()
             elif player_choice == "2":
-                ControllerPlayer.display_players()
+                PlayerController.display_players()
             elif player_choice == "3":
                 break
             else:
                 print("Choix invalide. Merci de saisir un nombre valide")
-                time.sleep(2)
+                time.sleep(1)

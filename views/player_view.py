@@ -18,7 +18,7 @@ class ViewPlayer:
     def first_name():
         first_name = input("Prénom du joueur?")
         return first_name
-    
+
     def last_name():
         last_name = input("Nom de famille du joueur?")
         return last_name

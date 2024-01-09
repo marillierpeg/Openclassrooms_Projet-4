@@ -20,4 +20,3 @@ class ModelPlayer:
                 "ID Joueur : {self.ID} \n"
                 "Score Global : {self.score}"
                 )
-
