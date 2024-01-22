@@ -27,7 +27,12 @@ class Tournament_View:
             number_of_rounds = 4
         return number_of_rounds
 
-    def new_tournament_players():
+    def new_tournament_description():
+        description = input("description/commentaire à propos de ce tournoi?")
+        return description
+
+    def number_of_players():
+        """choix des joueurs à ajouter au tournoi"""
         number_of_players = int(input(
             "combien de joueurs seront inscrits à ce tournoi?"
             ))
@@ -40,6 +45,24 @@ class Tournament_View:
                    )
         return number_of_players
 
-    def new_tournament_description():
-        description = input("description/commentaire à propos de ce tournoi?")
-        return description
+    def add_players(players_list, player):
+        add_player = input(
+            f"{player} \n Voulez-vous ajouter ce joueur au tournoi : \
+        oui/non?"
+        )
+        if add_player == "oui":
+            players_list.append(dict((x, y) for x, y in player))
+        elif add_player == "non":
+            pass
+        else:
+            print("merci de répondre par 'oui' ou 'non' uniquement")
+        return players_list
+
+    def display_tournament_players(name_place):
+        for number, name_place in enumerate(name_place, start=1):
+            print(f"{number} : Tournoi '{name_place[0]}' ayant "
+                  f"eu lieu à {name_place[1]}")
+        choice = input("saisir le nom du tournoi dont "
+                       "vous voulez afficher les joueurs : "
+                       )
+        return choice

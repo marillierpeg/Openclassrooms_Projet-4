@@ -59,3 +59,13 @@ class PlayerController:
             else:
                 print("Choix invalide. Merci de saisir un nombre valide")
                 time.sleep(1)
+
+    def players_database():
+        players = []
+        with open("json_files/players.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+        for i in range(len(data)):
+            dict_player = data[i]
+            item_list = list(dict_player.items())
+            players.append(item_list)
+        return players
