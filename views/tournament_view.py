@@ -47,9 +47,8 @@ class Tournament_View:
 
     def add_players(players_list, player):
         add_player = input(
-            f"{player} \n Voulez-vous ajouter ce joueur au tournoi : \
-        oui/non?"
-        )
+            f"{player} \n Voulez-vous ajouter ce joueur au tournoi : oui/non?"
+            )
         if add_player == "oui":
             players_list.append(dict((x, y) for x, y in player))
         elif add_player == "non":
@@ -66,3 +65,19 @@ class Tournament_View:
                        "vous voulez afficher les joueurs : "
                        )
         return choice
+
+    def closed_or_current_tournament():
+        print("le tournoi que vous voulez afficher est-il :")
+        print("1. En cours")
+        print("2. Terminé")
+        choice = input("Merci de saisir '1' ou '2' :  ")
+        return choice
+
+    def display_tournaments(tournaments_names):
+        for number, tournaments_names in enumerate(tournaments_names, start=1):
+            print(f"{number} : {tournaments_names}")
+        closed_choice = input(
+            "Quel est le nom de tournoi dont"
+            "vous souhaitez voir les détails? \n"
+        )
+        return closed_choice

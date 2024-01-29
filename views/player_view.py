@@ -7,8 +7,8 @@ class ViewPlayer:
     def display_players_menu():
         print("Menu Joueurs :")
         print("1 : Inscrire un joueur")
-        print("2 : afficher la liste de tous les joueurs")
-        print("3 : retour au menu principal")
+        print("2 : Afficher la liste de tous les joueurs")
+        print("3 : Retour au menu principal")
         player_choice = input(
             "Saisir le numéro du menu auquel vous souhaiter accéder :"
             )
