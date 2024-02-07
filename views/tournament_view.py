@@ -36,13 +36,11 @@ class Tournament_View:
         number_of_players = int(input(
             "combien de joueurs seront inscrits à ce tournoi?"
             ))
-        if (number_of_players % 2) == 0:
-            pass
-        else:
-            print("merci d'entrer un nombre pair de joueurs")
-            number_of_players = int(
-                input("combien de joueurs seront inscrits à ce tournoi?")
-                   )
+        while True:
+            if (number_of_players % 2) == 0:
+                break
+            else:
+                print("merci d'entrer un nombre pair de joueurs")
         return number_of_players
 
     def add_players(players_list, player):

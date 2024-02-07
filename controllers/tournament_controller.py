@@ -32,7 +32,6 @@ class TournamentController:
             "name": tournament_name,
             "place": tournament_place,
             "rounds": tournament_rounds,
-            "round_number": "",
             "number_of_players": players[0],
             "description": tournament_description,
             "start_date": tournament_start,

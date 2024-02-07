@@ -13,13 +13,13 @@ class PlayerController:
         last_name = ViewPlayer.last_name()
         date_of_birth = ViewPlayer.date_of_birth()
         ID_joueur = ViewPlayer.ID()
-        Current_Score = 0
+        current_score = 0
         players_info = [{
             "last_name": last_name,
             "first_name": first_name,
             "date_of_birth": date_of_birth,
             "ID": ID_joueur,
-            "Current_Score": Current_Score
+            "current_score": current_score
             }]
         try:
             with open(
