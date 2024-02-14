@@ -9,6 +9,6 @@ class ReportsView:
         print("5 : Liste de tous les tournois")
         print("6 : Retour au menu principal")
         rapport_choice = input(
-            "Saisir le numéro du menu auquel vous souhaiter accéder :"
+            "Saisir le numéro du menu auquel vous souhaiter accéder : "
             )
         return rapport_choice

@@ -7,7 +7,7 @@ class Tournament_View:
         print("3 : Terminer un tournoi")
         print("4 : Retour au menu principal")
         tournament_choice = input(
-            "Saisir le numéro du menu auquel vous souhaiter accéder :"
+            "Saisir le numéro du menu auquel vous souhaiter accéder : "
         )
         return tournament_choice
 

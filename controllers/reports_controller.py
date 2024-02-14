@@ -1,8 +1,8 @@
 from controllers.player_controller import PlayerController
 from views.reports_view import ReportsView
 from views.tournament_view import Tournament_View
+from controllers.tournament_controller import TournamentController
 
-import json
 import time
 
 
@@ -10,9 +10,7 @@ class ReportsController:
 
     def tournament_players_database():
         """joueurs du tournoi en cours"""
-        with open("json_files/current_tournament.json", "r", encoding="utf_8")\
-                as file:
-            data = json.load(file)
+        data = TournamentController.read_json("current_tournament")
         players = [dict_player.get('players_list') for dict_player in data]
         sorted_names = sorted(players, key=lambda x: (x[0], x[1]))
         return sorted_names
@@ -32,9 +30,7 @@ class ReportsController:
 
     def current_tournament_players():
         """joueurs du tournoi en cours"""
-        with open("json_files/current_tournament.json", "r", encoding="utf_8")\
-                as file:
-            data = json.load(file)
+        data = TournamentController.read_json("current_tournament")
         players = [dict_player.get('players_list') for dict_player in data]
         players = players[0]
         sorted_names = sorted(
@@ -50,10 +46,7 @@ class ReportsController:
         while True:
             choice = Tournament_View.closed_or_current_tournament()
             if choice == "1":
-                with open(
-                    "json_files/current_tournament.json", "r", encoding="utf_8"
-                ) as file:
-                    data = json.load(file)
+                data = TournamentController.read_json("current_tournament")
                 details = data[0]
                 name = details['name']
                 start = details['start_date']
@@ -62,10 +55,7 @@ class ReportsController:
                 ) as file:
                     file.write(f"Tournoi {name} \n débuté le : {start}")
             elif choice == "2":
-                with open(
-                    "json_files/ended_tournaments.json", "r", encoding="utf_8"
-                ) as file:
-                    data = json.load(file)
+                data = TournamentController.read_json("ended_tournaments")
                 names = []
                 for tournament in data:
                     details = tournament[0]
@@ -94,22 +84,8 @@ class ReportsController:
             else:
                 print("choix invalide")
 
-    def open_current_json():
-        with open(
-            "json_files/current_tournament.json", "r", encoding="utf_8"
-        ) as file:
-            data = json.load(file)
-        return data
-
-    def open_ended_json():
-        with open(
-            "json_files/ended_tournaments.json", "r", encoding="utf_8"
-        ) as file:
-            data = json.load(file)
-        return data
-
     def ended_report():
-        ended_data = ReportsController.open_ended_json()
+        ended_data = TournamentController.read_json("ended_tournaments")
         for tournament in ended_data:
             details = tournament[0]
             end = tournament[1]
@@ -123,7 +99,7 @@ class ReportsController:
                 )
 
     def current_report():
-        current_data = ReportsController.open_current_json()
+        current_data = TournamentController.read_json("current_tournament")
         current_details = current_data[0]
         with open(
             "reports/all_tournaments_details.txt", "a", encoding="utf_8"

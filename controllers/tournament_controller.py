@@ -28,16 +28,17 @@ class TournamentController:
         players = TournamentController.tournament_add_players()
         tournament_description = Tournament_View.new_tournament_description()
         tournament_start = time.strftime("%d-%m-%Y %H:%M:%S")
-        tournament_info = [{
+        tournament_info = {
             "name": tournament_name,
             "place": tournament_place,
             "rounds": tournament_rounds,
             "number_of_players": players[0],
             "description": tournament_description,
             "start_date": tournament_start,
+            "end_date": "",
             "players_list": players[1],
             "rounds_list": []
-        }]
+        }
         try:
             with open(
                 "json_files/current_tournament.json", "r", encoding="utf-8"
@@ -45,7 +46,7 @@ class TournamentController:
                 data = json.load(file)
         except FileNotFoundError:
             data = []
-        data.extend(tournament_info)
+        data.append(tournament_info)
         with open("json_files/current_tournament.json", "w", encoding="utf-8")\
                 as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
@@ -75,26 +76,32 @@ class TournamentController:
                 as file:
             data = json.load(file)
         end = time.strftime("%d-%m-%Y %H:%M:%S")
-        end_date = {"end_date": end}
-        data.append(end_date)
+        data[0]["end_date"] = end
         with open("json_files/ended_tournaments.json", "a") as file:
-            json.dump(data, file, ensure_ascii=False, indent=4)
+            file.write(",\n")
+            json.dump(data[0], file, ensure_ascii=False, indent=4)
 
         current_tournament_data = []
         with open("json_files/current_tournament.json", "w") as file:
             json.dump(current_tournament_data, file, ensure_ascii=False)
 
-    def read_current_json():
+    def read_json(file_name):
         with open(
-            "json_files/current_tournament.json", "r", encoding="utf_8"
-        ) as file:
-            data = json.load(file)
-        details = data[0]
-        return details
-
-    def read_ended_json():
-        with open(
-            "reports/ended_tournaments_details.txt", "r", encoding="utf_8"
+            f"json_files/{file_name}.json", "r", encoding="utf_8"
         ) as file:
             data = json.load(file)
         return data
+
+    def read_json_datas(file, data_to_retrieve, filter_data):
+        with open(f"json_files/{file}.json", "r", encoding="utf_8") as file:
+            data = json.load(file)
+
+        filter_key = filter_data.split(":")[0]
+        filter_value = filter_data.split(":")[1]
+
+        for current_data in data:
+            if current_data[filter_key] == filter_value:
+                details = current_data[data_to_retrieve]
+                return details
+
+        return None

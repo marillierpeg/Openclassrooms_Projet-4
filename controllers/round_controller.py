@@ -1,4 +1,6 @@
 from views.round_view import Round_View
+from controllers.tournament_controller import TournamentController
+from controllers.match_controller import MatchController
 
 import random
 import time
@@ -8,11 +10,16 @@ from copy import deepcopy
 
 class RoundController:
 
+    def end_round():
+        data = TournamentController.read_json("current_tournament")
+        round = data["rounds_list"][-1]
+        end_time = time.strftime("%d-%m-%Y %H:%M:%S")
+        round["end_time"] = end_time
+        with open("json_files/current_tournament.json", "w") as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
+
     def start_first_round():
-        with open(
-            "json_files/current_tournament.json", "r", encoding="utf-8"
-        ) as file:
-            data = json.load(file)
+        data = TournamentController.read_json("current_tournament")
         for element in range(len(data)):
             dict = data[element]
             players_list = dict['players_list']
@@ -30,10 +37,11 @@ class RoundController:
                 del dict['last_name']
                 del dict['first_name']
         start_round = time.strftime("%d-%m-%Y %H:%M:%S")
-        rounds_list.append(
-            f"round_number : {1}, "
-            f"start_time : {start_round},  match_list : {match_list}"
-            )
+        dict_round = {
+            "round_number": 1, "start_time": start_round,
+            "end_time": "", "match_list": match_list
+        }
+        rounds_list.append(dict_round)
         with open(
             "json_files/current_tournament.json", "w", encoding="utf-8"
         ) as file:
@@ -45,13 +53,13 @@ class RoundController:
         while True:
             round_choice = Round_View.display_round_menu()
             if round_choice == "1":
-                RoundController.start_first_round()
+                MatchController.first_matchs_begins()
             elif round_choice == "2":
-                pass
+                RoundController.end_round()
             elif round_choice == "3":
                 pass
             elif round_choice == "4":
-                pass
+                MatchController.update_scores()
             elif round_choice == "5":
                 break
             else:

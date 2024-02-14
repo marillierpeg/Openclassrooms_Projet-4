@@ -8,7 +8,6 @@ class Round_View:
         print("4. Saisir les scores des matchs d'un tour")
         print("5. Revenir au menu principal")
         choice = input(
-            "Merci de saisir le numéro"
-            "du menu auquel vous voulez accéder"
-        )
+            "Merci de saisir le numéro du menu auquel vous voulez accéder : "
+            )
         return choice
