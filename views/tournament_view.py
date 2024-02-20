@@ -3,9 +3,8 @@ class Tournament_View:
         """affiche menu tournois"""
         print("Menu Tournois")
         print("1 : Commencer un tournoi")
-        print("2 : Afficher la liste des joueurs du tournoi")
-        print("3 : Terminer un tournoi")
-        print("4 : Retour au menu principal")
+        print("2 : Terminer un tournoi")
+        print("3 : Retour au menu principal")
         tournament_choice = input(
             "Saisir le numéro du menu auquel vous souhaiter accéder : "
         )
@@ -38,17 +37,19 @@ class Tournament_View:
             ))
         while True:
             if (number_of_players % 2) == 0:
-                break
+                return number_of_players
             else:
-                print("merci d'entrer un nombre pair de joueurs")
-        return number_of_players
+                print("merci d'entrer un nombre pair de joueurs : ")
+                number_of_players = int(input())
 
     def add_players(players_list, player):
+        number_of_players = len(players_list)
         add_player = input(
             f"{player} \n Voulez-vous ajouter ce joueur au tournoi : oui/non?"
             )
         if add_player == "oui":
             players_list.append(dict((x, y) for x, y in player))
+            number_of_players += 1
         elif add_player == "non":
             pass
         else:

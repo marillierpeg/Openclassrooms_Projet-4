@@ -11,10 +11,8 @@ class TournamentController:
             if tournament_choice == "1":
                 TournamentController.create_tournament()
             elif tournament_choice == "2":
-                TournamentController.choose_tournament()
-            elif tournament_choice == "3":
                 TournamentController.close_tournament()
-            elif tournament_choice == "4":
+            elif tournament_choice == "3":
                 break
             else:
                 print("Choix invalide. Merci de saisir un nombre valide")
@@ -56,8 +54,7 @@ class TournamentController:
         number_of_players = Tournament_View.number_of_players()
         players = []
         players_list = []
-        with open("json_files/players.json", "r", encoding="utf-8") as file:
-            data = json.load(file)
+        data = TournamentController.read_json("players")
         for i in range(len(data)):
             dict_player = data[i]
             item_list = list(dict_player.items())
@@ -72,18 +69,19 @@ class TournamentController:
 
     def close_tournament():
         """terminer un tournoi"""
-        with open("json_files/current_tournament.json", "r", encoding="utf_8")\
-                as file:
-            data = json.load(file)
+        ended_data_list = []
+        ended_data = TournamentController.read_json("ended_tournaments")
+        ended_data_list.append(ended_data)
+        data = TournamentController.read_json("current_tournament")
         end = time.strftime("%d-%m-%Y %H:%M:%S")
         data[0]["end_date"] = end
-        with open("json_files/ended_tournaments.json", "a") as file:
-            file.write(",\n")
-            json.dump(data[0], file, ensure_ascii=False, indent=4)
+        ended_data_list.append(data)
+        TournamentController.write_json("ended_tournaments", ended_data_list)
 
         current_tournament_data = []
-        with open("json_files/current_tournament.json", "w") as file:
-            json.dump(current_tournament_data, file, ensure_ascii=False)
+        TournamentController.write_json(
+            "current_tournament", current_tournament_data
+        )
 
     def read_json(file_name):
         with open(
@@ -92,16 +90,6 @@ class TournamentController:
             data = json.load(file)
         return data
 
-    def read_json_datas(file, data_to_retrieve, filter_data):
-        with open(f"json_files/{file}.json", "r", encoding="utf_8") as file:
-            data = json.load(file)
-
-        filter_key = filter_data.split(":")[0]
-        filter_value = filter_data.split(":")[1]
-
-        for current_data in data:
-            if current_data[filter_key] == filter_value:
-                details = current_data[data_to_retrieve]
-                return details
-
-        return None
+    def write_json(file_name, data_to_write):
+        with open(f"json_files/{file_name}.json", "w") as file:
+            json.dump(data_to_write, file, ensure_ascii=False, indent=4)

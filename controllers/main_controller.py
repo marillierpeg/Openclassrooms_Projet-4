@@ -18,8 +18,6 @@ class MainController:
             elif choice == "3":
                 RoundController.round_menu_choice()
             elif choice == "4":
-                pass
-            elif choice == "5":
                 ReportsController.reports_menu()
             elif choice == "6":
                 break
