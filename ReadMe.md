@@ -64,5 +64,5 @@ python3 main.py
 ## Vérification Flake8
 Pour génrer un nouveau rapport attestant que le code de ce programme ne contient pas d'erreur et est conforme aux directives PEP 8, saisir la commande suivante :
 ```
-flake8 --format=html --htmldir=flake8_rapport
+flake8 --format=html --htmldir=flake8_rapport --max-line-length 119 .\flake8_rapport\
 ```
