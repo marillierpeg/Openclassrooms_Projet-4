@@ -1,5 +1,5 @@
 # Présentation
-
+Ce programme a pour but la gestion de tournois d'échecs
 
 # Instructions
 ## Prérequis
@@ -8,7 +8,7 @@ Avoir installé une version de Python égale ou supérieure à la 3.11.5
 ## Récupérer le programme
 
 Téléchargement du dossier zip:
-[en cliquant ici](https://github.com/marillierpeg/Openclassrooms_Projet-4.git)
+[en cliquant ici](https://github.com/marillierpeg/Openclassrooms_Projet-4/archive/refs/heads/main.zip)
 
 Choisissez l'endroit où vous souhaitez le dézipper. C'est dans ce dossier que le programme stockera les fichiers extraits après lancement.
 
@@ -26,12 +26,18 @@ python -m venv env
 
 #### Lancer l'environnement virtuel :
 
-* saisir la commande  suivante  **sous Windows** :
+* saisir la commande  suivante  **sous Windows** (cmd) :
 ```
 env\Scripts\activate.bat
 ```
 
-* saisir cette commande sous **Linux / Mac** :
+* saisir la commande  suivante  **sous Windows** (PowerShell) :
+
+```
+env\Scripts\activate.ps1
+```
+
+* saisir la commande  suivante **sous Linux / Mac** :
 
 ```
 source env/bin/activate
@@ -48,14 +54,15 @@ pip freeze
 
 
 ### Lancement des programmes
-
-
-4. Exemple de message de sortie 
-![Alt text](<Capture d'écran 2023-10-31 100800.png>)
-
-## Vérification Flake8
-
 Saisir la commande suivante :
 ```
-flake8 --format=html --htmldir=flake-report
+python3 main.py
+```
+
+
+
+## Vérification Flake8
+Pour génrer un nouveau rapport attestant que le code de ce programme ne contient pas d'erreur et est conforme aux directives PEP 8, saisir la commande suivante :
+```
+flake8 --format=html --htmldir=flake8-report
 ```
