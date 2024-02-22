@@ -14,12 +14,8 @@ class ReportsController:
         rounds_list = data[0]["rounds_list"]
         name = data[0]["name"]
         start_tournament = data[0]["start_date"]
-        with open(
-            "reports/current_tournament_rounds.txt", "w", encoding="utf_8"
-        ) as file:
-            file.write(
-                f"Voici les détails du tournoi {name} en cours : \n"
-            )
+        with open("reports/current_tournament_rounds.txt", "w", encoding="utf_8") as file:
+            file.write(f"Voici les détails du tournoi {name} en cours : \n")
             file.write(f"Ce tournoi a débuté le {start_tournament} \n")
             for rounds in rounds_list:
                 round = rounds["round_number"]
@@ -36,9 +32,7 @@ class ReportsController:
         players = PlayerController.players_database()
         players_dict = [player.__dict__ for player in players]
         sorted_players = sorted(
-            players_dict, key=lambda player: (player["last_name"],
-                                              player["first_name"])
-            )
+            players_dict, key=lambda player: (player["last_name"], player["first_name"]))
         with open("reports/all_players.txt", "w", encoding="utf_8")\
                 as file:
             for item in sorted_players:
@@ -48,15 +42,12 @@ class ReportsController:
 
     def current_tournament_players():
         """affiche les joueurs du tournoi en cours dans un fichier texte"""
+        """ordre alphabétique du nom puis du prénom"""
         data = TournamentController.read_json("current_tournament")
         players = [dict_player.get('players_list') for dict_player in data]
         players = players[0]
-        sorted_names = sorted(
-            players, key=lambda x: (x['last_name'], x['first_name'])
-            )
-        with open(
-            "reports/current_tournament_players.txt", "w", encoding="utf_8"
-        ) as file:
+        sorted_names = sorted(players, key=lambda x: (x['last_name'], x['first_name']))
+        with open("reports/current_tournament_players.txt", "w", encoding="utf_8") as file:
             for item in sorted_names:
                 file.write(f"{item}\n")
         print("Rapport créé")
@@ -66,6 +57,7 @@ class ReportsController:
         "affiche les details d'un tournoi donné dans un fichier texte"
         while True:
             choice = Tournament_View.closed_or_current_tournament()
+            """choix tournoi en cours ou terminé"""
             if choice == "1":
                 data = TournamentController.read_json("current_tournament")
                 details = data[0]
@@ -91,10 +83,7 @@ class ReportsController:
                     for tournaments in data:
                         datas = tournaments[0]
                         if datas['name'].lower() == closed_choice.lower():
-                            with open(
-                                "reports/ended_tournaments_details.txt", 
-                                "w", encoding="utf_8"
-                            ) as file:
+                            with open("reports/ended_tournaments_details.txt", "w", encoding="utf_8") as file:
                                 file.write(
                                     f"Tournoi {datas['name']} \n \
                                     débuté le : {datas['start_date']} \n \

@@ -45,8 +45,7 @@ class TournamentController:
         except FileNotFoundError:
             data = []
         data.append(tournament_info)
-        with open("json_files/current_tournament.json", "w", encoding="utf-8")\
-                as file:
+        with open("json_files/current_tournament.json", "w", encoding="utf-8") as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
     def tournament_add_players():
