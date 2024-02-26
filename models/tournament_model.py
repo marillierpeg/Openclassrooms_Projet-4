@@ -1,7 +1,5 @@
-"""Définit un tournoi"""
-
-
 class ModelTournament:
+    """Définit un tournoi"""
     def __init__(self,
                  name="",
                  place="",

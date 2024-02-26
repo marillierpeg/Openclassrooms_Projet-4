@@ -1,7 +1,5 @@
-"""définit un tour"""
-
-
 class ModelRound:
+    """définit un tour"""
     def __init__(self, tournament_name="",
                  start_date="",
                  end_date="",

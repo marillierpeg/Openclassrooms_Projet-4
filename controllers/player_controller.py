@@ -33,6 +33,7 @@ class PlayerController:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
     def players_database():
+        """liste des joueurs"""
         players = []
         with open("json_files/players.json", "r", encoding="utf-8") as file:
             data = json.load(file)

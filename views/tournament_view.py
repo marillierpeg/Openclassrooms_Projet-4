@@ -11,15 +11,17 @@ class Tournament_View:
         return tournament_choice
 
     def new_tournament_name():
-        """récupère les informations liées au nouveau tournoi"""
+        """récupère le nom du tournoi"""
         tournament_name = input("quel est le nom de ce tournoi?")
         return tournament_name
 
     def new_tournament_place():
+        """récupère le lieu du tournoi"""
         tournament_place = input("A quel endroit à lieu ce tournoi?")
         return tournament_place
 
     def new_tournament_rounds():
+        """récupère le nombre de rounds du tournoi"""
         number_of_rounds = input(
             "Combien de rounds comptera ce tournoi? (par défaut 4)")
         if number_of_rounds == "":
@@ -27,11 +29,12 @@ class Tournament_View:
         return number_of_rounds
 
     def new_tournament_description():
+        """récupère l'éventuelle description liée au tournoi"""
         description = input("description/commentaire à propos de ce tournoi?")
         return description
 
     def number_of_players():
-        """choix des joueurs à ajouter au tournoi"""
+        """choix du nombre de joueurs que comptera le tournoi"""
         number_of_players = int(input(
             "combien de joueurs seront inscrits à ce tournoi?"
             ))
@@ -43,6 +46,7 @@ class Tournament_View:
                 number_of_players = int(input())
 
     def add_players(players_list, player):
+        """choix des joueurs à inscrire au tournoi"""
         number_of_players = len(players_list)
         add_player = input(
             f"{player} \n Voulez-vous ajouter ce joueur au tournoi : oui/non?"
@@ -56,16 +60,8 @@ class Tournament_View:
             print("merci de répondre par 'oui' ou 'non' uniquement")
         return players_list
 
-    def display_tournament_players(name_place):
-        for number, name_place in enumerate(name_place, start=1):
-            print(f"{number} : Tournoi '{name_place[0]}' ayant "
-                  f"eu lieu à {name_place[1]}")
-        choice = input("saisir le nom du tournoi dont "
-                       "vous voulez afficher les joueurs : "
-                       )
-        return choice
-
     def closed_or_current_tournament():
+        """choix d'un tournoi en cours ou terminé"""
         print("le tournoi que vous voulez afficher est-il :")
         print("1. En cours")
         print("2. Terminé")
@@ -73,6 +69,7 @@ class Tournament_View:
         return choice
 
     def display_tournaments(tournaments_names):
+        """choix d'"un tournoi"""
         for number, tournaments_names in enumerate(tournaments_names, start=1):
             print(f"{number} : {tournaments_names}")
         closed_choice = input(

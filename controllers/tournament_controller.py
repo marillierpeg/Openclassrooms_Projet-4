@@ -49,7 +49,7 @@ class TournamentController:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
     def tournament_add_players():
-        """ajoute des joueurs au tournoi"""
+        """ajoute des joueurs au tournoi parmi la liste des joueurs disponibles"""
         number_of_players = Tournament_View.number_of_players()
         players = []
         players_list = []
@@ -68,14 +68,12 @@ class TournamentController:
 
     def close_tournament():
         """terminer un tournoi"""
-        ended_data_list = []
         ended_data = TournamentController.read_json("ended_tournaments")
-        ended_data_list.append(ended_data)
-        data = TournamentController.read_json("current_tournament")
+        data = TournamentController.read_json("current_tournament")[0]
         end = time.strftime("%d-%m-%Y %H:%M:%S")
-        data[0]["end_date"] = end
-        ended_data_list.append(data)
-        TournamentController.write_json("ended_tournaments", ended_data_list)
+        data["end_date"] = end
+        ended_data.append(data)
+        TournamentController.write_json("ended_tournaments", ended_data)
 
         current_tournament_data = []
         TournamentController.write_json(
@@ -83,12 +81,17 @@ class TournamentController:
         )
 
     def read_json(file_name):
-        with open(
-            f"json_files/{file_name}.json", "r", encoding="utf_8"
-        ) as file:
-            data = json.load(file)
+        """lire un des fichiers json"""
+        try:
+            with open(
+                f"json_files/{file_name}.json", "r", encoding="utf_8"
+            ) as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            data = []
         return data
 
     def write_json(file_name, data_to_write):
+        """écrire dans un fichier json"""
         with open(f"json_files/{file_name}.json", "w") as file:
             json.dump(data_to_write, file, ensure_ascii=False, indent=4)

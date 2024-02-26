@@ -14,16 +14,18 @@ class ViewPlayer:
             )
         return player_choice
 
-    """récupération des informations du joueur"""
     def first_name():
+        """récupération du prénom du joueur"""
         first_name = input("Prénom du joueur?")
         return first_name
 
     def last_name():
+        """récupération du nom du joueur"""
         last_name = input("Nom de famille du joueur?")
         return last_name
 
     def date_of_birth():
+        """récupération de la date de naissance du joueur"""
         while True:
             format_date = "%d-%m-%Y"
             date_of_birth = input(
@@ -36,6 +38,7 @@ class ViewPlayer:
                 print("merci d'entrer une date valide")
 
     def ID():
+        """récupération de l'ID du joueur"""
         while True:
             ID = input("Identifiant du joueur? (format attendu : AB12345)")
             if re.match(r'[a-zA-Z]{2}[0-9]{5}$', ID):
