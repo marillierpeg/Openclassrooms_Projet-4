@@ -1,0 +1,355 @@
+[
+    {
+        "name": "TNE1",
+        "place": "Paris",
+        "rounds": "2",
+        "number_of_players": 4,
+        "description": "",
+        "start_date": "23-02-2024 09:17:37",
+        "end_date": "23-02-2024 14:24:44",
+        "players_list": [
+            {
+                "last_name": "Michel",
+                "first_name": "Georges",
+                "date_of_birth": "11-10-1972",
+                "ID": "JM36258",
+                "current_score": 2.0
+            },
+            {
+                "last_name": "Dupont",
+                "first_name": "Antoine",
+                "date_of_birth": "5-05-1985",
+                "ID": "AD65987",
+                "current_score": 1.0
+            },
+            {
+                "last_name": "Marillier",
+                "first_name": "Caroline",
+                "date_of_birth": "19-06-1979",
+                "ID": "ZM45875",
+                "current_score": 1.0
+            },
+            {
+                "last_name": "Landermont",
+                "first_name": "Juliette",
+                "date_of_birth": "8-08-1995",
+                "ID": "JP56234",
+                "current_score": 0.0
+            }
+        ],
+        "rounds_list": [
+            {
+                "round_number": 1,
+                "start_time": "23-02-2024 14:19:36",
+                "end_time": "23-02-2024 14:22:13",
+                "match_list": [
+                    [
+                        {
+                            "ID": "JM36258",
+                            "current_score": 1.0
+                        },
+                        {
+                            "ID": "AD65987",
+                            "current_score": 0.0
+                        }
+                    ],
+                    [
+                        {
+                            "ID": "ZM45875",
+                            "current_score": 1.0
+                        },
+                        {
+                            "ID": "JP56234",
+                            "current_score": 0.0
+                        }
+                    ]
+                ]
+            },
+            {
+                "round_number": 2,
+                "start_time": "23-02-2024 14:22:17",
+                "end_time": "23-02-2024 14:24:34",
+                "match_list": [
+                    [
+                        {
+                            "ID": "AD65987",
+                            "current_score": 1.0
+                        },
+                        {
+                            "ID": "JP56234",
+                            "current_score": 0.0
+                        }
+                    ],
+                    [
+                        {
+                            "ID": "JM36258",
+                            "current_score": 1.0
+                        },
+                        {
+                            "ID": "ZM45875",
+                            "current_score": 0.0
+                        }
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "name": "TNE2",
+        "place": "Nancy",
+        "rounds": "1",
+        "number_of_players": 4,
+        "description": "",
+        "start_date": "23-02-2024 14:34:44",
+        "end_date": "23-02-2024 14:36:37",
+        "players_list": [
+            {
+                "last_name": "Landermont",
+                "first_name": "Juliette",
+                "date_of_birth": "8-08-1995",
+                "ID": "JP56234",
+                "current_score": 1.0
+            },
+            {
+                "last_name": "Michel",
+                "first_name": "Georges",
+                "date_of_birth": "11-10-1972",
+                "ID": "JM36258",
+                "current_score": 0.0
+            },
+            {
+                "last_name": "Marillier",
+                "first_name": "Peggy",
+                "date_of_birth": "19-06-1979",
+                "ID": "PM45875",
+                "current_score": 0.0
+            },
+            {
+                "last_name": "Dupont",
+                "first_name": "Antoine",
+                "date_of_birth": "5-05-1985",
+                "ID": "AD65987",
+                "current_score": 1.0
+            }
+        ],
+        "rounds_list": [
+            {
+                "round_number": 1,
+                "start_time": "23-02-2024 14:34:58",
+                "end_time": "23-02-2024 14:35:56",
+                "match_list": [
+                    [
+                        {
+                            "ID": "JP56234",
+                            "current_score": 1.0
+                        },
+                        {
+                            "ID": "JM36258",
+                            "current_score": 0.0
+                        }
+                    ],
+                    [
+                        {
+                            "ID": "PM45875",
+                            "current_score": 0.0
+                        },
+                        {
+                            "ID": "AD65987",
+                            "current_score": 1.0
+                        }
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "name": "TNE3",
+        "place": "Toulouse",
+        "rounds": "2",
+        "number_of_players": 4,
+        "description": "",
+        "start_date": "23-02-2024 15:08:57",
+        "end_date": "26-02-2024 10:28:31",
+        "players_list": [
+            {
+                "last_name": "Marillier",
+                "first_name": "Peggy",
+                "date_of_birth": "19-06-1979",
+                "ID": "PM45875",
+                "current_score": 2.0
+            },
+            {
+                "last_name": "Dean",
+                "first_name": "James",
+                "date_of_birth": "13-07-1967",
+                "ID": "JD45872",
+                "current_score": 0.0
+            },
+            {
+                "last_name": "Dupont",
+                "first_name": "Antoine",
+                "date_of_birth": "5-05-1985",
+                "ID": "AD65987",
+                "current_score": 1.5
+            },
+            {
+                "last_name": "Marillier",
+                "first_name": "Caroline",
+                "date_of_birth": "19-06-1979",
+                "ID": "ZM45875",
+                "current_score": 0.5
+            }
+        ],
+        "rounds_list": [
+            {
+                "round_number": 1,
+                "start_time": "23-02-2024 15:09:05",
+                "end_time": "23-02-2024 15:10:00",
+                "match_list": [
+                    [
+                        {
+                            "ID": "PM45875",
+                            "current_score": 1.0
+                        },
+                        {
+                            "ID": "JD45872",
+                            "current_score": 0.0
+                        }
+                    ],
+                    [
+                        {
+                            "ID": "AD65987",
+                            "current_score": 0.5
+                        },
+                        {
+                            "ID": "ZM45875",
+                            "current_score": 0.5
+                        }
+                    ]
+                ]
+            },
+            {
+                "round_number": 2,
+                "start_time": "23-02-2024 15:10:17",
+                "end_time": "23-02-2024 15:11:05",
+                "match_list": [
+                    [
+                        {
+                            "ID": "JD45872",
+                            "current_score": 0.0
+                        },
+                        {
+                            "ID": "AD65987",
+                            "current_score": 1.0
+                        }
+                    ],
+                    [
+                        {
+                            "ID": "ZM45875",
+                            "current_score": 0.0
+                        },
+                        {
+                            "ID": "PM45875",
+                            "current_score": 1.0
+                        }
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "name": "TNE4",
+        "place": "Biarritz",
+        "rounds": "2",
+        "number_of_players": 4,
+        "description": "",
+        "start_date": "26-02-2024 10:58:48",
+        "end_date": "26-02-2024 11:00:33",
+        "players_list": [
+            {
+                "last_name": "Dupont",
+                "first_name": "Antoine",
+                "date_of_birth": "5-05-1985",
+                "ID": "AD65987",
+                "current_score": 1.0
+            },
+            {
+                "last_name": "Landermont",
+                "first_name": "Juliette",
+                "date_of_birth": "8-08-1995",
+                "ID": "JP56234",
+                "current_score": 0.5
+            },
+            {
+                "last_name": "Michel",
+                "first_name": "Georges",
+                "date_of_birth": "11-10-1972",
+                "ID": "JM36258",
+                "current_score": 0.5
+            },
+            {
+                "last_name": "Dean",
+                "first_name": "James",
+                "date_of_birth": "13-07-1967",
+                "ID": "JD45872",
+                "current_score": 2.0
+            }
+        ],
+        "rounds_list": [
+            {
+                "round_number": 1,
+                "start_time": "26-02-2024 10:58:56",
+                "end_time": "",
+                "match_list": [
+                    [
+                        {
+                            "ID": "AD65987",
+                            "current_score": 1.0
+                        },
+                        {
+                            "ID": "JP56234",
+                            "current_score": 0.0
+                        }
+                    ],
+                    [
+                        {
+                            "ID": "JM36258",
+                            "current_score": 0.0
+                        },
+                        {
+                            "ID": "JD45872",
+                            "current_score": 1.0
+                        }
+                    ]
+                ]
+            },
+            {
+                "round_number": 2,
+                "start_time": "26-02-2024 10:59:30",
+                "end_time": "26-02-2024 11:00:01",
+                "match_list": [
+                    [
+                        {
+                            "ID": "JP56234",
+                            "current_score": 0.5
+                        },
+                        {
+                            "ID": "JM36258",
+                            "current_score": 0.5
+                        }
+                    ],
+                    [
+                        {
+                            "ID": "AD65987",
+                            "current_score": 0.0
+                        },
+                        {
+                            "ID": "JD45872",
+                            "current_score": 1.0
+                        }
+                    ]
+                ]
+            }
+        ]
+    }
+]
