@@ -8,6 +8,7 @@ import time
 
 
 class MainController:
+    """menu principal"""
     def choices():
         while True:
             choice = MainView.display_menu()
@@ -19,7 +20,7 @@ class MainController:
                 RoundController.round_menu_choice()
             elif choice == "4":
                 ReportsController.reports_menu()
-            elif choice == "6":
+            elif choice == "5":
                 break
             else:
                 print("Choix invalide. Merci de saisir un nombre valide")

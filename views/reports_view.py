@@ -1,5 +1,6 @@
 class ReportsView:
     def display_reports_menu():
+        """affiche le menu des rapports"""
         print("Menu Rapports")
         print("1 : Liste de tous les joueurs (ordre alphabétique)")
         print("2 : Liste des joueurs du tournoi en cours "

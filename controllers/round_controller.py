@@ -11,18 +11,17 @@ from copy import deepcopy
 class RoundController:
 
     def new_round():
+        """commencer un nouveau tour"""
         data = TournamentController.read_json("current_tournament")
         players = data[0]["players_list"]
         rounds_list = data[0]["rounds_list"]
         number_of_rounds = data[0]["rounds"]
         round_number = rounds_list[-1]["round_number"]
-        if round_number < number_of_rounds:
+        if int(round_number) < int(number_of_rounds):
             round_number = round_number + 1
             start_round = time.strftime("%d-%m-%Y %H:%M:%S")
             new_round_list = []
-            score_sorted_players = sorted(
-                players, key=lambda x: x["current_score"]
-            )
+            score_sorted_players = sorted(players, key=lambda x: x["current_score"])
             for i in range(0, len(score_sorted_players), 2):
                 new_round_list.append(score_sorted_players[i:i + 2])
             match_list = deepcopy(new_round_list)
@@ -49,6 +48,7 @@ class RoundController:
             time.sleep(1)
 
     def end_round():
+        """terminer un tour"""
         data = TournamentController.read_json("current_tournament")
         round = data[0]["rounds_list"][-1]
         end_time = time.strftime("%d-%m-%Y %H:%M:%S")
@@ -57,6 +57,7 @@ class RoundController:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
     def start_first_round():
+        """commencer un 1er tour"""
         data = TournamentController.read_json("current_tournament")
         for element in range(len(data)):
             dict = data[element]
@@ -89,6 +90,7 @@ class RoundController:
         MatchController.first_matchs_begins(first_round_list)
 
     def round_menu_choice():
+        """menu des tours"""
         while True:
             round_choice = Round_View.display_round_menu()
             if round_choice == "1":

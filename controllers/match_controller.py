@@ -17,8 +17,8 @@ class MatchController:
             choix = input("Mettre à jour les scores de ce match? oui/non? ")
             if choix == "oui":
                 for joueur in match:
-                    score = input(f"Quelle est le score de ce joueur {joueur} ?")
-                    joueur["current_score"] = float(joueur["current_score"]) + float(score)
+                    score = input(f"Quelle est le score de ce joueur : {joueur} ?")
+                    joueur["current_score"] = float(score)
                     for player in player_list:
                         if joueur["ID"] == player["ID"]:
                             player["current_score"] = player["current_score"] + joueur["current_score"]
@@ -28,7 +28,7 @@ class MatchController:
                 pass
             else:
                 print("merci de répondre par oui ou par non")
-            MatchController.winner_loser(match_list)
+        MatchController.winner_loser(match_list)
 
     def white_black():
         """tirage au sort de la couleur des pions"""
@@ -40,13 +40,16 @@ class MatchController:
         return pawn
 
     def first_matchs_begins(first_round_list):
-        """définir quel joueur joue avec les blancs"""
+        """définit avec quelle couleur de pion jouera le 1er joueur de chaque match"""
         for players in first_round_list:
             players_one = []
             players_one.append(players[0])
             for player_one in players_one:
+                first_name = player_one["first_name"]
+                last_name = player_one["last_name"]
+                id = player_one["ID"]
                 pawn_color = MatchController.white_black()
-                Match_View.first_player(player_one, pawn_color)
+                Match_View.first_player(first_name, last_name, id, pawn_color)
 
     def winner_loser(match_list):
         """définit le gagnant d'un match"""
@@ -56,6 +59,6 @@ class MatchController:
             if joueur1["current_score"] == joueur2["current_score"]:
                 print(f"match nul entre {joueur1} et {joueur2}")
             elif joueur1["current_score"] < joueur2["current_score"]:
-                print(f"le gagnant de ce tour est : {joueur2}")
+                print(f"{joueur2} gagne son match")
             elif joueur1["current_score"] > joueur2["current_score"]:
-                print(f"le gagnant de ce tour est : {joueur1}")
+                print(f"{joueur1} gagne son match")

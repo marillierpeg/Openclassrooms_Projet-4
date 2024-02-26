@@ -1,0 +1,15 @@
+{
+    "cSpell.language": "en,fr-FR,fr",
+    "cSpell.words": [
+        "Marillier"
+    ],
+    "cSpell.ignoreWords": [
+        "Landermont",
+        "timecode"
+    ],
+    
+    "flake8.args": [
+        "--max-line-length=119"
+    ]
+    
+}
