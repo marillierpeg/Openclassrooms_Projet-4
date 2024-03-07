@@ -1,5 +1,6 @@
 from views.match_view import Match_View
 from controllers.tournament_controller import TournamentController
+from views.main_view import MainView
 
 import random
 import json
@@ -14,7 +15,7 @@ class MatchController:
         player_list = data[0]["players_list"]
         for position, match in enumerate(match_list, start=1):
             print(position, match)
-            choix = input("Mettre à jour les scores de ce match? oui/non? ")
+            choix = Match_View.scores()
             if choix == "oui":
                 for joueur in match:
                     score = input(f"Quelle est le score de ce joueur : {joueur} ?")
@@ -27,7 +28,7 @@ class MatchController:
             elif choix == "non":
                 pass
             else:
-                print("merci de répondre par oui ou par non")
+                MainView.invalid_choice()
         MatchController.winner_loser(match_list)
 
     def white_black():

@@ -1,4 +1,6 @@
 from views.tournament_view import Tournament_View
+from views.main_view import MainView
+from views.player_view import ViewPlayer
 import json
 import time
 
@@ -15,7 +17,7 @@ class TournamentController:
             elif tournament_choice == "3":
                 break
             else:
-                print("Choix invalide. Merci de saisir un nombre valide")
+                MainView.invalid_choice()
                 time.sleep(1)
 
     def create_tournament():
@@ -62,7 +64,7 @@ class TournamentController:
             if len(players_list) < number_of_players:
                 Tournament_View.add_players(players_list, player)
             else:
-                print("nombre maximum de joueurs atteint")
+                ViewPlayer.players_max()
                 break
         return number_of_players, players_list
 

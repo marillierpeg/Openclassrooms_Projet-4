@@ -2,6 +2,7 @@ from controllers.player_controller import PlayerController
 from views.reports_view import ReportsView
 from views.tournament_view import Tournament_View
 from controllers.tournament_controller import TournamentController
+from views.main_view import MainView
 
 import time
 
@@ -24,7 +25,7 @@ class ReportsController:
                 match_list = rounds["match_list"]
                 file.write(f"Tour n°{round} commencé le : {start_round} \n")
                 file.write(f"match_list : {match_list} \n")
-        print("Rapport créé")
+        ReportsView.report_created()
         time.sleep(1)
 
     def display_all_players_alphabetically():
@@ -37,7 +38,7 @@ class ReportsController:
                 as file:
             for item in sorted_players:
                 file.write(f"{item}\n")
-        print("Rapport créé")
+        ReportsView.report_created()
         time.sleep(1)
 
     def current_tournament_players():
@@ -45,7 +46,7 @@ class ReportsController:
         par ordre alphabétique du nom puis du prénom"""
         data = TournamentController.read_json("current_tournament")
         if data == []:
-            print("pas de tournoi en cours actuellement")
+            Tournament_View.no_current_tournament()
             time.sleep(1)
         else:
             players = [dict_player.get('players_list') for dict_player in data]
@@ -54,7 +55,7 @@ class ReportsController:
             with open("reports/current_tournament_players.txt", "w", encoding="utf_8") as file:
                 for item in sorted_names:
                     file.write(f"{item}\n")
-            print("Rapport créé")
+            ReportsView.report_created()
             time.sleep(1)
 
     def chose_tournament_to_display():
@@ -72,7 +73,7 @@ class ReportsController:
                     "w", encoding="utf_8"
                 ) as file:
                     file.write(f"Tournoi {name} \n débuté le : {start}")
-                print("Rapport créé")
+                ReportsView.report_created()
                 time.sleep(1)
                 break
 
@@ -91,14 +92,14 @@ class ReportsController:
                                     débuté le : {tournaments['start_date']} \n \
                                     terminé le : {tournaments['end_date']}"
                                 )
-                    print("Rapport créé")
+                    ReportsView.report_created()
                     time.sleep(1)
                     break
 
                 else:
-                    print(f"Le tournoi '{closed_choice}' n'existe pas.")
+                    Tournament_View.no_tournament()
             else:
-                print("choix invalide")
+                MainView.invalid_choice()
                 break
 
     def ended_report():
@@ -145,10 +146,10 @@ class ReportsController:
                 ReportsController.current_report()
                 ReportsController.ended_report()
                 time.sleep(1)
-                print("Rapport créé")
+                ReportsView.report_created()
                 time.sleep(1)
             elif report_choice == "6":
                 break
             else:
-                print("Choix invalide. Merci de saisir un nombre valide")
+                MainView.invalid_choice()
                 time.sleep(1)

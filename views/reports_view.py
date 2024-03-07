@@ -13,3 +13,6 @@ class ReportsView:
             "Saisir le numéro du menu auquel vous souhaiter accéder : "
             )
         return rapport_choice
+    
+    def report_created():
+        print("Rapport créé")

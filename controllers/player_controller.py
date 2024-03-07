@@ -1,5 +1,6 @@
 from views.player_view import ViewPlayer
 from models.player_model import ModelPlayer
+from views.main_view import MainView
 
 import json
 import time
@@ -60,5 +61,5 @@ class PlayerController:
             elif player_choice == "3":
                 break
             else:
-                print("Choix invalide. Merci de saisir un nombre valide")
+                MainView.invalid_choice()
                 time.sleep(1)

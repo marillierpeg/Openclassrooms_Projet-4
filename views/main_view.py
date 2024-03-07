@@ -11,3 +11,6 @@ class MainView:
             "Saisir le numéro du menu auquel vous souhaiter accéder :"
             )
         return start_choice
+
+    def invalid_choice():
+        print("Choix invalide")

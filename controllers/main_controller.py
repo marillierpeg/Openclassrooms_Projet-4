@@ -23,5 +23,5 @@ class MainController:
             elif choice == "5":
                 break
             else:
-                print("Choix invalide. Merci de saisir un nombre valide")
+                MainView.invalid_choice()
                 time.sleep(2)

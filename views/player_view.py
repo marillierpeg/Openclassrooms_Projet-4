@@ -14,6 +14,9 @@ class ViewPlayer:
             )
         return player_choice
 
+    def players_max():
+        print("nombre maximum de joueurs atteint")
+
     def first_name():
         """récupération du prénom du joueur"""
         first_name = input("Prénom du joueur?")

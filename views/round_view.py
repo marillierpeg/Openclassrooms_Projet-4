@@ -11,3 +11,6 @@ class Round_View:
             "Merci de saisir le numéro du menu auquel vous voulez accéder : "
             )
         return choice
+
+    def end_of_rounds():
+        print("Fin des rounds, vous pouvez maintenant terminer le tournoi")

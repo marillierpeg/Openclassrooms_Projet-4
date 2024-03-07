@@ -1,4 +1,6 @@
 from views.round_view import Round_View
+from views.match_view import Match_View
+from views.main_view import MainView
 from controllers.tournament_controller import TournamentController
 from controllers.match_controller import MatchController
 
@@ -44,7 +46,7 @@ class RoundController:
             ) as file:
                 json.dump(data, file, ensure_ascii=False, indent=4)
         else:
-            print("Fin des rounds, vous pouvez maintenant terminer le tournoi")
+            Round_View.end_of_rounds()
             time.sleep(1)
 
     def end_round():
@@ -85,8 +87,7 @@ class RoundController:
             "json_files/current_tournament.json", "w", encoding="utf-8"
         ) as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
-        print("Voici la liste des matchs de ce tour :")
-        print(match_list)
+        Match_View.match_list(match_list)
         MatchController.first_matchs_begins(first_round_list)
 
     def round_menu_choice():
@@ -104,5 +105,5 @@ class RoundController:
             elif round_choice == "5":
                 break
             else:
-                print("Choix invalide. Merci de saisir un nombre valide")
+                MainView.invalid_choice()
                 time.sleep(1)

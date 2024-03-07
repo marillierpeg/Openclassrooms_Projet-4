@@ -77,3 +77,9 @@ class Tournament_View:
             "vous souhaitez voir les détails? \n"
         )
         return closed_choice
+
+    def no_current_tournament():
+        print("pas de tournoi en cours actuellement")
+
+    def no_tournament():
+        print("Ce tournoi n'existe pas.")
