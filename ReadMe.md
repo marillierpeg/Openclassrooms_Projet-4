@@ -1,3 +1,8 @@
+## *Compétences acquises durant la réalisation ce projet :*
+- Utiliser la programmation orientée objet pour développer un programme Python
+- Ecrire du code robuste en utilisant PEP8
+- Structurer le code d'un programmme en utilisant un design pattern, ici le MVC (Model View Controller)
+
 # Présentation
 Ce programme a pour but la gestion de tournois d'échecs
 
